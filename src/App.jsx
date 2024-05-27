@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
 import Navbar from './components/Navbar';
-import Bienvenida from './components/Bienvenida';
+// import Bienvenida from './components/Bienvenida';
 import VistaMedicamentos from './components/VistaMedicamentos';
 import DetalleMedicamento from './components/DetalleMedicamento';
 import SuministrarMedicamento from './components/SuministrarMedicamento';
 import useSpeechRecognition from './hooks/useSpeechRecognition';
 import './App.css';
 import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 const medicamentos = [
   {
