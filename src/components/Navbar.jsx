@@ -44,7 +44,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const Navbar = () => {
+const Navbar = ({ searchTerm, setSearchTerm }) => {
   return (
     <AppBar position="static">
       <Toolbar>
@@ -58,6 +58,8 @@ const Navbar = () => {
           <StyledInputBase
             placeholder="Buscar…"
             inputProps={{ 'aria-label': 'search' }}
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
         </Search>
       </Toolbar>

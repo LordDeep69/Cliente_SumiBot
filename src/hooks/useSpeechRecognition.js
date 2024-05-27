@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useSpeechRecognition = () => {
+const useSpeechRecognition = (onCommand) => {
     const [isListening, setIsListening] = useState(false);
     const [transcript, setTranscript] = useState('');
 
@@ -20,6 +20,7 @@ const useSpeechRecognition = () => {
                     }
                 }
                 setTranscript(finalTranscript);
+                onCommand(finalTranscript);
             };
 
             if (isListening) {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Grid, Box, TextField, Button } from '@mui/material';
 import CardMedicamento from './CardMedicamento';
 
@@ -54,9 +54,7 @@ const medicamentos = [
   // Añade más objetos de medicamentos según sea necesario
 ];
 
-const VistaMedicamentos = ({ onVerDetalle, onSuministrar, onRealizarPedido }) => {
-  const [searchTerm, setSearchTerm] = useState('');
-
+const VistaMedicamentos = ({ onVerDetalle, onSuministrar, onRealizarPedido, searchTerm, setSearchTerm }) => {
   const filteredMedicamentos = medicamentos.filter((medicamento) =>
     medicamento.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
