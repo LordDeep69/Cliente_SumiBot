@@ -1,13 +1,13 @@
+import React, { useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
 import Navbar from './components/Navbar';
-// import Bienvenida from './components/Bienvenida';
+import Bienvenida from './components/Bienvenida';
 import VistaMedicamentos from './components/VistaMedicamentos';
 import DetalleMedicamento from './components/DetalleMedicamento';
 import SuministrarMedicamento from './components/SuministrarMedicamento';
 import useSpeechRecognition from './hooks/useSpeechRecognition';
 import './App.css';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
 
 const medicamentos = [
   {
@@ -84,21 +84,25 @@ function App() {
     };
   }, []);
 
-  const handleVerDetalle = (medicamento) => {
-    setSelectedMedicamento(medicamento);
-    setView('detalle');
-  };
-
-  const handleSuministrar = async (medicamento) => {
-    setSelectedMedicamento(medicamento);
-    setView('suministrar');
+  const sendSerialMessage = async (message) => {
     try {
-      const response = await axios.post('http://127.0.0.1:5000/send', { message: `Suministrando ${medicamento.name}` });
+      const response = await axios.post('http://127.0.0.1:5000/send', { message });
       alert(`Mensaje enviado: ${response.data.status}`);
     } catch (error) {
       console.error('Error enviando mensaje:', error);
       alert('Error enviando mensaje');
     }
+  };
+
+  const handleVerDetalle = (medicamento) => {
+    setSelectedMedicamento(medicamento);
+    setView('detalle');
+  };
+
+  const handleSuministrar = (medicamento) => {
+    setSelectedMedicamento(medicamento);
+    setView('suministrar');
+    sendSerialMessage(`Suministrando ${medicamento.name}`);
   };
 
   const handleVolver = () => {
@@ -117,11 +121,10 @@ function App() {
       setView('medicamentos');
     } else if (lowerCaseCommand.includes('vista pedidos')) {
       setView('pedido');
-    } else if (lowerCaseCommand.includes('suministrar medicamento')) {
-      const name = lowerCaseCommand.replace('suministrar medicamento', '').trim();
-      const medicamento = medicamentos.find(m => m.name.toLowerCase() === name.toLowerCase());
-      if (medicamento) {
-        handleSuministrar(medicamento);
+    } else if (lowerCaseCommand.includes('medicamento')) {
+      const number = lowerCaseCommand.replace('medicamento', '').trim();
+      if (['1', '2', '3', '4', '5', '6'].includes(number)) {
+        sendSerialMessage(number);
       }
     } else if (lowerCaseCommand.includes('ver detalles de medicamento')) {
       const name = lowerCaseCommand.replace('ver detalles de medicamento', '').trim();

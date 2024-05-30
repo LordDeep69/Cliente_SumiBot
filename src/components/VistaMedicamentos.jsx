@@ -29,7 +29,7 @@ const medicamentos = [
   },
   {
     imageUrl: 'https://lh3.googleusercontent.com/y0szA0Xw5LkQJ2wPUz7rZwlF-XURh2yGPC9NkuUlZj_2tVpkPnHOuRd0I29PucdWqaY35IytzzxtN9nT6iWroRpgO-MPC14o17dWJPZkh01DxBS6=s360',
-    name: 'Medicamento 15',
+    name: 'Medicamento 4',
     price: 10.0,
     type: 'Tipo 1',
     content: 'Contenido 1',
@@ -37,7 +37,7 @@ const medicamentos = [
   },
   {
     imageUrl: 'https://lh3.googleusercontent.com/ApskHwkCxvPok3EvTjHYTqvzXAcm4dRoLoDTcVYQO_S6xqKeya1heTlTdOcsYktpKLDIzGcwZnsz-f7P0r9yh6RkKpUhDKgNtfMTk9uCIrt_DIb8=s360',
-    name: 'Medicamento 20',
+    name: 'Medicamento 5',
     price: 10.0,
     type: 'Tipo 1',
     content: 'Contenido 1',
@@ -45,7 +45,7 @@ const medicamentos = [
   },
   {
     imageUrl: 'https://lh3.googleusercontent.com/proxy/ibVQJ6qbAA4n6haQr0fMEn46w5Lvvn8i1-29f-DOHQRabv_NtN4K9sHhq07o1A7khWpU4801vkv6ZxzEGEGqcVkV-FWjMx9DwUFUEnYpI_L5HDmMMB7t',
-    name: 'Medicamento 3',
+    name: 'Medicamento 6',
     price: 250.0,
     type: 'Tipo 1',
     content: 'Contenido 80',
